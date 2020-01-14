@@ -84,10 +84,12 @@
 			let isIDInUse = true;
 	    var newId = "";
 	    var charset = "0123456789";
+	    // Keep generating an ID until it's not in use by other todo item
 	    while (isIDInUse) {
 				for (var i = 0; i < 6; i++) {
 					newId += charset.charAt(Math.floor(Math.random() * charset.length));
 				}
+				// Check if newId is already in use by any other todo item
 				const index = todos.findIndex(item => item.id === newId);
 				isIDInUse = index > -1;
 			}
